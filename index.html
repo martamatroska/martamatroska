@@ -1,5 +1,4 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -38,8 +37,35 @@
 <body onload="startTime()">
     <div id="content">
         <div class="container">
+            <div class="text">
+                <a class="styleone" href="/cctv">*</a>
+                <br>
+                VFX, versioning, offline-online y muchas cosas bonitas working at "
+                <a href="https://www.canadacanada.com/" target="_blank">CANADA</a>
+                " based in "
+                <a href="https://maps.app.goo.gl/8Jax9VNqDX4G4gpo7" target="_blank">Barcelona</a>
+                <br><br>
+                <a href="/projects">Work</a>
+                <br>
+                <!-- <a href="mailto:contact@uncanny.services" target="_blank">Contact</a> -->
+                <button id="btn">
+                    <span class="text">Contact</span>
+                </button>
+            </div>
+            <script>
+                const btn = document.getElementById('btn');
+
+                btn.addEventListener('click', function handleClick() {
+                    btn.textContent = 'Contact(at) marta.castillo@canadacanada.com';
+                });
+            </script>
+            <!--
+            <a href="projects.html">Archive</a></div></div>
+            -->
+            <div id="clock"></div>
         </div>
     </div>
 </body>
 </html>
+
 
