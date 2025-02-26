@@ -1,0 +1,236 @@
+.text{
+
+		    margin: 0 0 9px 0;
+				 width: 800px; margin-bottom: 9px;
+				 color:black;
+		 		font-size: 11pt;
+		 	 font-family: "Neue";
+			   letter-spacing: -.3px;
+	}
+
+	.text2{
+
+			    margin: 0 0 9px 0;
+					 width: 800px; margin-bottom: 9px;
+					 color:white;
+			 		font-size: 11pt;
+			 	 font-family: "Neue";
+				   letter-spacing: -.3px;
+		}
+	.title{
+
+			    margin: 0 0 9px 0;
+					 width: 700px; margin-bottom: 9px;
+					 color:black;
+			 		font-size: 11pt;
+			 	 font-family: "Neue";
+
+				   letter-spacing: -.3px;
+		}
+		.container {
+		    padding: 2px 2px 2px 2px;
+		}
+
+		.img-container > img:hover {
+			-webkit-transform:scale(2); /* or some other value */
+		    transform:scale(2);
+			display: unset;
+			margin-left: auto;
+			margin-right: auto;
+transform-origin: bottom left;
+
+		}
+
+		img.himages{
+
+			vertical-align: top;
+		}
+
+		.imagesection {
+			margin: 0 0 2px 0;
+			 width: 1200px;
+
+
+		}
+
+	button {
+  border: none;
+  color: none;
+  text-decoration: none;
+  cursor: default;
+background-color:rgba(0, 0, 0, 0.0);
+ font-family: "serif";
+ font-size: 11pt;
+ display: block;
+    padding: 0px;
+    margin: 0;
+ text-decoration: underline;
+ letter-spacing: -.3px;
+}
+
+button span.text {
+    padding: 0px;
+		letter-spacing: -.3px;
+}
+
+#Video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+	z-index: -1;
+}
+video::-webkit-media-controls {
+  display: none;
+}
+/*
+
+audio::-webkit-media-controls-timeline,
+video::-webkit-media-controls-timeline {
+    display: none;
+}
+audio::-webkit-media-controls,
+video::-webkit-media-controls {
+    display: none;
+}
+*/
+
+#ryatvideo {
+	width: 562px;
+}
+
+#fwvideo{
+	width: 80%;
+}
+
+#clock{
+	position: fixed;
+	  bottom: 8px;
+	  right: 16px;
+		color:black;
+		font-size: 11pt;
+	 font-family: "Neue";
+letter-spacing: -.3px;
+	}
+	.mode{
+		position: fixed;
+		  bottom: 8px;
+		  right: 69px;
+			color:black;
+			font-size: 11pt;
+		 font-family: "Neue";
+		 padding: 0px;
+		 margin: 0;
+
+	letter-spacing: -.3px;
+		}
+			.mode:hover {
+			color: white;
+						   letter-spacing: -.3px;
+							 cursor: pointer;
+		}
+		.mode{
+			position: fixed;
+			  bottom: 8px;
+			  right: 69px;
+				color:black;
+				font-size: 11pt;
+			 font-family: "Neue";
+			 padding: 0px;
+			 margin: 0;
+
+		letter-spacing: -.3px;
+			}
+
+body {background-color: #fcfcfc;}
+
+a {
+  color: black;				   letter-spacing: -.3px;
+}
+
+a:visited {
+  color: black;				   letter-spacing: -.3px;
+}
+
+a:hover {
+	color: white;
+				   letter-spacing: -.3px;
+}
+
+
+
+.styleone:link {
+  color: black;				   letter-spacing: -.3px;
+text-decoration: none;
+}
+
+.styleone:visited {
+  color: black;				   letter-spacing: -.3px;
+text-decoration: none;
+}
+
+.styleone:hover {
+  color: white;				   letter-spacing: -.3px;
+text-decoration: none;
+}
+
+
+.styletwo:link {
+  color: white;				   letter-spacing: -.3px;
+
+}
+
+.styletwo:visited {
+  color: white;				   letter-spacing: -.3px;
+
+}
+
+.styletwo:hover {
+  color: black;				   letter-spacing: -.3px;
+
+}
+
+
+
+
+.stylethree:link {
+  color: white;				   letter-spacing: -.3px;
+text-decoration: none;
+}
+
+.stylethree:visited {
+  color: white;				   letter-spacing: -.3px;
+text-decoration: none;
+}
+
+.stylethree:hover {
+  color: black;				   letter-spacing: -.3px;
+text-decoration: none;
+}
+
+
+
+
+::selection {
+
+    background: #3390ff;
+
+	    color: white;
+	    text-shadow: 1px 1px 1px white, 1px -1px 1px white, -1px 1px 1px white, -1px -1px 1px white;
+	}
+}
+video::-webkit-media-controls-panel {
+ background-image: none !important;
+ filter: brightness(0.4);
+
+}
+
+.mode{
+	position: fixed;
+	  bottom: 8px;
+	  right: 69px;
+		color:black;
+		font-size: 11pt;
+	 font-family: "Neue";
+letter-spacing: -.3px;
