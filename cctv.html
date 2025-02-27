@@ -1,37 +1,37 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='es' lang='es'>
+    
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <title>MARTA</title>
-    
     <script type='text/javascript' src='jquery.js'></script>
     <script type='text/javascript' src='cursor.js'></script>
+    <!-- FAVICON --> 
+    <link rel="icon" href="assets/favicon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
-
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-168047056-1');
-    </script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    <script>
-    function startTime() {
-      var today = new Date();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      var s = today.getSeconds();
-      m = checkTime(m);
-      s = checkTime(s);
-      document.getElementById('clock').innerHTML =
-      h + ":" + m + ":" + s;
-      setTimeout(startTime, 500);
-    }
-    function checkTime(i) {
-      if (i < 10) {i = "0" + i};  // Agrega un 0 delante si es menor a 10
-      return i;
-    }
+        gtag('config', 'UA-160847056-1');
     </script>
-
+     <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('clock').innerHTML =
+            h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i;}  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
     <style>
         /* Establece la imagen de la cámara en vivo como fondo */
         body {
@@ -51,27 +51,48 @@
 </head>
 
 <body onload="startTime()">
-    <div id='content'>
+    <div id="content">
         <div class="container">
-            <a class='styleone' href='index.html'>*</a> <br>
-            VFX, versioning, offline-online y muchas cosas bonitas working at 
-            <a href="https://www.canadacanada.com/" target="_blank">CANADA</a>
-            and based in 
-            <a href="https://maps.app.goo.gl/8Jax9VNqDX4G4gpo7" target="_blank">Barcelona</a> <br>
-            <br><br><br> <a href='/projects'>Work</a>
-            <br>
-            <!--<a href="mailto:marta.catillo@canadacanada.com"target=_blank>Contact</a>	-->
-            <button id="btn"><span class = text>Contact --></span></button>
-
+            <div class="text">
+                <a class="styleone" href="cctv">*</a>
+                <br>
+                VFX, versioning, offline-online y muchas cosas bonitas working at 
+                <a href="https://www.canadacanada.com/" target="_blank">CANADA</a>
+                and based in 
+                <a href="https://maps.app.goo.gl/8Jax9VNqDX4G4gpo7" target="_blank">Barcelona</a>
+                
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="/projects">Work</a>
+                <br>
+                <!-- <a href="mailto:marta.castillo@canadacanada,com" target="_blank">Contact</a> -->
+                <button id="btn">
+                    <span class="text">Contact --></span>
+                </button>
+            </div>
             <script>
-                const btn = document.getElementById('btn');
-                btn.addEventListener('click', function handleClick() {
-                    btn.textContent = 'Contact --> marta.castillo(at)canadacanada(dot)com';
-                });
+                const btn = document.getElementById('btn'); // Obtiene el botón
+                const originalText = btn.textContent; // Guarda el texto original
+
+                btn.addEventListener('click', function handleClick() { 
+                    // Alterna entre el texto original y el email
+               if (btn.textContent === originalText) {
+               btn.textContent = 'Contact --> marta.castillo(at)canadacanada(dot)com';
+               } else {
+               btn.textContent = originalText;
+         }
+    });
             </script>
-            <br>
+            <!--
+            <a href="projects.html">Archive</a></div></div>
+            -->
+            <div id="clock"></div>
         </div>
-        <div id="clock"></div>
     </div>
 </body>
 </html>
