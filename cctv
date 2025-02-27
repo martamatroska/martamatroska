@@ -1,0 +1,89 @@
+		<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+		<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		<title>UNCANNY</title>
+	<script type='text/javascript' src='jquery.js'></script>
+	<script type='text/javascript'> src='cursor.js'></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-168047056-1');
+	</script>
+	<script>
+	function startTime() {
+	  var today = new Date();
+	  var h = today.getHours();
+	  var m = today.getMinutes();
+	  var s = today.getSeconds();
+	  m = checkTime(m);
+	  s = checkTime(s);
+	  document.getElementById('clock').innerHTML =
+	  h + ":" + m + ":" + s;
+	  var t = setTimeout(startTime, 500);
+	}
+	function checkTime(i) {
+	  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+	  return i;
+	}
+	</script>
+		</head>
+
+<body onload="startTime()">
+		<div id='content'>
+
+			<div class="container">
+
+<img id="video" src="blob:https://www.skylinewebcams.com/fe678277-6639-48e6-98ef-72bb2608b72d" class="" alt="" autoplay controls muted> </a>
+<script>
+var ch = 0;
+var imageurls = new Array();
+imageurls[0] = new String("blob:https://www.skylinewebcams.com/fe678277-6639-48e6-98ef-72bb2608b72d");
+</script>
+
+
+
+
+<div class='container'>
+<div class="text">
+<a class='styleone' href='/cctv'>*</a> <br>
+                VFX, versioning, offline-online y muchas cosas bonitas working at 
+                <a href="https://www.canadacanada.com/" target="_blank">CANADA</a>
+                and based in 
+                <a href="https://maps.app.goo.gl/8Jax9VNqDX4G4gpo7" target="_blank">Barcelona</a> <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br> <a href='/projects'>Work</a>
+<br>
+<!--<a href="mailto:contact@uncanny.services"target=_blank>Contact</a>	-->
+ <button id="btn"><span class = text>Contact</span></button>
+
+ <script>
+ const btn = document.getElementById('btn');
+
+btn.addEventListener('click', function handleClick() {
+  btn.textContent = 'Contact(at)uncanny.services';
+});
+</script>
+<br>
+			<!--
+<a href ='projects.html'>Archive</a></div></div> 		-->
+</div>
+
+<div id="clock"></div>
+
+
+
+
+
+
+		</body>
+
+		</script>
+		</html>
