@@ -1,88 +1,79 @@
-	<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
-	<head>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-	<title>MARTA</title>
-	<script type='text/javascript' src='jquery.js'></script>
-	<script type='text/javascript'> src='cursor.js'></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-168047056-1');
-	</script>
-	<script>
-	function startTime() {
-	  var today = new Date();
-	  var h = today.getHours();
-	  var m = today.getMinutes();
-	  var s = today.getSeconds();
-	  m = checkTime(m);
-	  s = checkTime(s);
-	  document.getElementById('clock').innerHTML =
-	  h + ":" + m + ":" + s;
-	  var t = setTimeout(startTime, 500);
-	}
-	function checkTime(i) {
-	  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-	  return i;
-	}
-	</script>
-		</head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARTA</title>
+    
+    <!-- Enlace a CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url('http://195.77.185.114:8081/mjpg/video.mjpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente para legibilidad */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #clock {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        button {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
 
 <body onload="startTime()">
-		<div id='content'>
+    <div class="container">
+        <p>VFX, versioning, offline-online y muchas cosas bonitas working at 
+            <a href="https://www.canadacanada.com/" target="_blank" style="color: cyan;">CANADA</a>
+            and based in 
+            <a href="https://maps.app.goo.gl/8Jax9VNqDX4G4gpo7" target="_blank" style="color: cyan;">Barcelona</a>
+        </p>
 
-			<div class="container">
+        <button id="btn">Contact</button>
+        <div id="clock"></div>
+    </div>
 
-<iframe src="http://195.77.185.114:8081/index.html?lang=es" width="800" height="600"></iframe> </a>
-<script>
-var ch = 0;
-var imageurls = new Array();
-imageurls[0] = new String("http://195.77.185.114:8081/index.html?lang=es");
-</script>
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 500);
+        }
 
+        function checkTime(i) {
+            return (i < 10) ? "0" + i : i;
+        }
 
-
-<div class='container'>
-<div class="text">
-<a class='styleone' href='index.html'>*</a> <br>
-                VFX, versioning, offline-online y muchas cosas bonitas working at 
-                <a href="https://www.canadacanada.com/" target="_blank">CANADA</a>
-                and based in 
-                <a href="https://maps.app.goo.gl/8Jax9VNqDX4G4gpo7" target="_blank">Barcelona</a> <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br> <a href='/projects'>Work</a>
-<br>
-<!--<a href="mailto:marta.catillo@canadacanada.com"target=_blank>Contact</a>	-->
- <button id="btn"><span class = text>Contact --></span></button>
-
- <script>
- const btn = document.getElementById('btn');
-
-btn.addEventListener('click', function handleClick() {
-  btn.textContent = 'Contact --> marta.castillo(at)canadacanada(dot)com';
-});
-</script>
-<br>
-			<!--
-<a href ='projects.html'>Archive</a></div></div> 		-->
-</div>
-
-<div id="clock"></div>
-
-
-
-
-
-
-		</body>
-
-		</script>
-		</html>
+        document.getElementById('btn').addEventListener('click', function() {
+            this.textContent = 'Contact → marta.castillo(at)canadacanada(dot)com';
+        });
+    </script>
+</body>
+</html>
