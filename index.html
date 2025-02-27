@@ -50,17 +50,23 @@
                 <br><br>
                 <a href="/projects">Work</a>
                 <br>
-                <!-- <a href="mailto:contact@uncanny.services" target="_blank">Contact</a> -->
+                <!-- <a href="mailto:marta.castillo@canadacanada,com" target="_blank">Contact</a> -->
                 <button id="btn">
                     <span class="text">Contact</span>
                 </button>
             </div>
             <script>
-                const btn = document.getElementById('btn');
+                const btn = document.getElementById('btn'); // Obtiene el botón
+                const originalText = btn.textContent; // Guarda el texto original
 
-                btn.addEventListener('click', function handleClick() {
-                    btn.textContent = 'Contact(at) marta.castillo@canadacanada.com';
-                });
+                btn.addEventListener('click', function handleClick() { 
+                    // Alterna entre el texto original y el email
+               if (btn.textContent === originalText) {
+               btn.textContent = 'Contact --> marta.castillo(at)canadacanada.com';
+               } else {
+               btn.textContent = originalText;
+         }
+    });
             </script>
             <!--
             <a href="projects.html">Archive</a></div></div>
