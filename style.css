@@ -73,12 +73,6 @@ button span.text {
 		letter-spacing: -.3px;
 }
 
-@media screen and (max-width: 600px) { 
-    button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
 #Video {
   position: fixed;
   right: 0;
