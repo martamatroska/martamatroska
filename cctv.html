@@ -36,22 +36,11 @@
      <style id="dark-reader-style" type="text/css">
         @media screen { html {-webkit-transition : -webkit-filter 300ms linear;} }
     </style>
-    <style>
-        /* Establece la imagen de la cámara en vivo como fondo */
-        body {
-            background: url('http://195.77.185.114:8081/index.html?lang=es') no-repeat center center fixed;
-            background-size: cover;
-        }
-
-        /* Asegura que el contenido se mantenga visible sobre la imagen */
-        #content {
-            position: relative;
-            z-index: 2;
-            text-align: left;
-            color: black;
-            font-family: Neue;
-        }
-    </style>
+   <div class="es-subscribe-video-bg">
+    <video muted loop autoplay playsinline preload="auto" poster="https://cdn.meideinthe.cloud/entirestudios.com/content/10-careers/thumb-1.jpg" class="es-homepage-video">
+        <source src="https://player.vimeo.com/progressive_redirect/playback/1000318971/rendition/720p/file.mp4?loc=external&signature=78db78a90237fc9d64d01b1d50441506d1f0b9389c8b2d0bf540a875cda0540a" type="video/mp4">
+    </video>
+   </div>
 </head>
 
 <body onload="startTime()">
