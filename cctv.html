@@ -36,27 +36,18 @@
      <style id="dark-reader-style" type="text/css">
         @media screen { html {-webkit-transition : -webkit-filter 300ms linear;} }
     </style>
-   <style>
-        /* Establece la imagen de la cámara en vivo como fondo */
-        body {
-            background: url(https://player.vimeo.com/progressive_redirect/playback/1000318971/rendition/720p/file.mp4?loc=external&signature=78db78a90237fc9d64d01b1d50441506d1f0b9389c8b2d0bf540a875cda0540a) no-repeat center center fixed;
-            background-size: cover;
-        }
-
-        /* Asegura que el contenido se mantenga visible sobre la imagen */
-        #content {
-            position: relative;
-            z-index: 2;
-            text-align: left;
-            color: black;
-            font-family: Neue;
-        }
-    </style>
 </head>
-
-<body onload="startTime()">
+  
+    <body onload="startTime()">
     <div id="content">
         <div class="container">
+            <img id="video" src="https://storatorg.halmstad.se/axis-cgi/mjpg/video.cgi?resolution=1280x800&dummy=1451583211819" class alt autoplay controls muted> 
+    <script>
+        var ch = 0;
+        var imageurls = new Array();
+        imageurls[0] = new String("https://storatorg.halmstad.se/axis-cgi/mjpg/video.cgi?resolution=1280x800&dummy=1451583211819");
+    </script>
+            <div class="container">
             <div class="text">
                 <a class="styleone" href="index">*</a>
                 <br>
