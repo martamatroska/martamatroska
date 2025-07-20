@@ -120,13 +120,20 @@
 <script>
 let count = 0;
 const counter = document.getElementById("counter");
+const recordTarget = Math.floor(Math.random() * 10) + 5; // número entre 5 y 14
+
 document.getElementById("star").addEventListener("click", function(e) {
     e.preventDefault();
     count++;
     counter.textContent = count;
     counter.style.display = "inline";
+
+    if (count === recordTarget) {
+        alert("Congrats! New Record!");
+    }
 });
 </script>
+
 </body>
 </html>
 
