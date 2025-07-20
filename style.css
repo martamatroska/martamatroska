@@ -55,8 +55,7 @@ transform-origin: bottom left;
 
 	button {
   border: none;
-  color: none;
-  text-decoration: none;
+  color: green;
   cursor: default;
 background-color:rgba(0, 0, 0, 0.0);
  font-family: "Times New Roman", Times, serif;
