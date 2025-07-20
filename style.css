@@ -68,10 +68,7 @@ background-color:rgba(0, 0, 0, 0.0);
  letter-spacing: -.3px;
 }
 
-button span.text {
-    padding: 0px;
-		letter-spacing: -.3px;
-}
+
 
 #Video {
   position: fixed;
