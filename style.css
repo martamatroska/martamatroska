@@ -226,14 +226,15 @@ video::-webkit-media-controls-panel {
 
 }
 
-.mode{
+.mode {
 	position: fixed;
-	  bottom: 8px;
-	  right: 69px;
-		color:black;
-		font-size: 11pt;
-	 font-family: "Neue";
-letter-spacing: -.3px;
+	bottom: 8px;
+	right: 69px;
+	color: black;
+	font-size: 11pt;
+	font-family: "Neue";
+	letter-spacing: -.3px;
+}
 
 body.bg-active {
     background-image: url('assets/IDphoto.jpg');
