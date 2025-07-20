@@ -236,7 +236,7 @@ video::-webkit-media-controls-panel {
 letter-spacing: -.3px;
 
 body.bg-active {
-    background-image: url('IDphoto.jpg');
+    background-image: url('assets/IDphoto.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
