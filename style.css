@@ -234,3 +234,11 @@ video::-webkit-media-controls-panel {
 		font-size: 11pt;
 	 font-family: "Neue";
 letter-spacing: -.3px;
+
+body.bg-active {
+    background-image: url('IDphoto.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
