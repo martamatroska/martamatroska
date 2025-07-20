@@ -241,5 +241,5 @@ body.bg-active {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
+    background-attachment: fixed;
 }
