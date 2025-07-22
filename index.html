@@ -121,7 +121,22 @@
 <script>
 let count = 0;
 const counter = document.getElementById("counter");
-const recordTarget = Math.floor(Math.random() * 10) + 5; // número entre 5 y 14
+let recordTarget = getRandomTarget();
+
+function getRandomTarget() {
+    return Math.floor(Math.random() * 10) + 5; // entre 5 y 14
+}
+
+function getRandomMessage() {
+    const messages = [
+        "what if",
+        "we all",
+        "quit our jobs and",
+        "just",
+        "hang out"
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
+}
 
 document.getElementById("star").addEventListener("click", function(e) {
     e.preventDefault();
@@ -130,9 +145,11 @@ document.getElementById("star").addEventListener("click", function(e) {
     counter.style.display = "inline";
 
     if (count === recordTarget) {
-        alert("what if");
+        alert(getRandomMessage());
+        recordTarget = count + getRandomTarget(); // nuevo objetivo relativo al contador actual
     }
 });
+
 </script>
 
 </body>
