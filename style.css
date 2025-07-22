@@ -67,7 +67,11 @@ background-color:rgba(0, 0, 0, 0.0);
  letter-spacing: -.3px;
 }
 
-
+#showBg {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
 
 #Video {
   position: fixed;
