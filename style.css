@@ -1,76 +1,57 @@
-.text{
+.text, .text2, .title {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 0 9px 0;
+  font-size: 11pt;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: -0.3px;
+}
 
-		    margin: 0 0 9px 0;
-				 width: 800px; margin-bottom: 9px;
-				 color:black;
-		 		font-size: 11pt;
-		 	 font-family: "Times New Roman", Times, serif;
-			   letter-spacing: -.3px;
-	}
+.text { color: black; }
+.text2 { color: white; }
+.title { max-width: 700px; color: black; }
 
-	.text2{
+.container {
+  padding: 2px;
+}
 
-			    margin: 0 0 9px 0;
-					 width: 800px; margin-bottom: 9px;
-					 color:white;
-			 		font-size: 11pt;
-			 	 font-family: "Times New Roman", Times, serif;
-				   letter-spacing: -.3px;
-		}
-	.title{
+.img-container > img:hover {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  display: unset;
+  margin-left: auto;
+  margin-right: auto;
+  transform-origin: bottom left;
+}
 
-			    margin: 0 0 9px 0;
-					 width: 700px; margin-bottom: 9px;
-					 color:black;
-			 		font-size: 11pt;
-			 	 font-family: "Times New Roman", Times, serif;
+img.himages {
+  vertical-align: top;
+}
 
-				   letter-spacing: -.3px;
-		}
-		.container {
-		    padding: 2px 2px 2px 2px;
-		}
+.imagesection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 0 2px 0;
+}
 
-		.img-container > img:hover {
-			-webkit-transform:scale(2); /* or some other value */
-		    transform:scale(2);
-			display: unset;
-			margin-left: auto;
-			margin-right: auto;
-transform-origin: bottom left;
-
-		}
-
-		img.himages{
-
-			vertical-align: top;
-		}
-
-		.imagesection {
-			margin: 0 0 2px 0;
-			 width: 1200px;
-
-
-		}
-
-	button {
+button {
   border: none;
   color: black;
   cursor: default;
-background-color:rgba(0, 0, 0, 0.0);
- font-family: "Times New Roman", Times, serif;
- font-size: 11pt;
- display: block;
-    padding: 0px;
-    margin: 0;
- text-decoration: underline;
- letter-spacing: -.3px;
+  background-color: rgba(0, 0, 0, 0.0);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11pt;
+  display: block;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  letter-spacing: -0.3px;
 }
 
 #showBg {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }
 
 #Video {
@@ -79,167 +60,138 @@ background-color:rgba(0, 0, 0, 0.0);
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-	z-index: -1;
+  z-index: -1;
 }
+
 video::-webkit-media-controls {
   display: none;
 }
-/*
-
-audio::-webkit-media-controls-timeline,
-video::-webkit-media-controls-timeline {
-    display: none;
-}
-audio::-webkit-media-controls,
-video::-webkit-media-controls {
-    display: none;
-}
-*/
 
 #ryatvideo {
-	width: 562px;
+  width: 100%;
+  max-width: 562px;
 }
 
-#fwvideo{
-	width: 80%;
+#fwvideo {
+  width: 100%;
 }
 
-#clock{
-	position: fixed;
-	  bottom: 8px;
-	  right: 16px;
-		color:black;
-		font-size: 11pt;
-	 font-family: "Times New Roman", Times, serif;
-letter-spacing: -.3px;
-	}
-	.mode{
-		position: fixed;
-		  bottom: 8px;
-		  right: 69px;
-			color:black;
-			font-size: 11pt;
-		 font-family: "Times New Roman", Times, serif;
-		 padding: 0px;
-		 margin: 0;
-
-	letter-spacing: -.3px;
-		}
-			.mode:hover {
-			color: white;
-						   letter-spacing: -.3px;
-							 cursor: pointer;
-		}
-		.mode{
-			position: fixed;
-			  bottom: 8px;
-			  right: 69px;
-				color:black;
-				font-size: 11pt;
-			 font-family: "Times New Roman", Times, serif;
-			 padding: 0px;
-			 margin: 0;
-
-		letter-spacing: -.3px;
-			}
-
-body {background-color: #fcfcfc;}
-
-a {
-  color: black;				   letter-spacing: -.3px;
-}
-
-a:visited {
-  color: black;				   letter-spacing: -.3px;
-}
-
-a:hover {
-	color: white;
-				   letter-spacing: -.3px;
-}
-
-
-
-.styleone:link {
-  color: black;				   letter-spacing: -.3px;
-text-decoration: none;
-}
-
-.styleone:visited {
-  color: black;				   letter-spacing: -.3px;
-text-decoration: none;
-}
-
-.styleone:hover {
-  color: white;				   letter-spacing: -.3px;
-text-decoration: none;
-}
-
-
-.styletwo:link {
-  color: white;				   letter-spacing: -.3px;
-
-}
-
-.styletwo:visited {
-  color: white;				   letter-spacing: -.3px;
-
-}
-
-.styletwo:hover {
-  color: black;				   letter-spacing: -.3px;
-
-}
-
-
-
-
-.stylethree:link {
-  color: white;				   letter-spacing: -.3px;
-text-decoration: none;
-}
-
-.stylethree:visited {
-  color: white;				   letter-spacing: -.3px;
-text-decoration: none;
-}
-
-.stylethree:hover {
-  color: black;				   letter-spacing: -.3px;
-text-decoration: none;
-}
-
-
-
-
-::selection {
-
-    background: #00e31a;
-
-	    color: white;
-	    text-shadow: 1px 1px 1px white, 1px -1px 1px white, -1px 1px 1px white, -1px -1px 1px white;
-	}
-}
-video::-webkit-media-controls-panel {
- background-image: none !important;
- filter: brightness(0.4);
-
+#clock {
+  position: fixed;
+  bottom: 8px;
+  right: 16px;
+  color: black;
+  font-size: 11pt;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: -0.3px;
 }
 
 .mode {
-	position: fixed;
-	bottom: 8px;
-	right: 69px;
-	color: black;
-	font-size: 11pt;
-	font-family: "Times New Roman", Times, serif;
-	letter-spacing: -.3px;
+  position: fixed;
+  bottom: 8px;
+  right: 69px;
+  color: black;
+  font-size: 11pt;
+  font-family: "Times New Roman", Times, serif;
+  padding: 0;
+  margin: 0;
+  letter-spacing: -0.3px;
+  cursor: pointer;
+}
+
+.mode:hover {
+  color: white;
+}
+
+body {
+  background-color: #fcfcfc;
+}
+
+a {
+  color: black;
+  letter-spacing: -0.3px;
+}
+
+a:visited {
+  color: black;
+  letter-spacing: -0.3px;
+}
+
+a:hover {
+  color: white;
+  letter-spacing: -0.3px;
+}
+
+.styleone:link,
+.styleone:visited {
+  color: black;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+}
+
+.styleone:hover {
+  color: white;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+}
+
+.styletwo:link,
+.styletwo:visited {
+  color: white;
+  letter-spacing: -0.3px;
+}
+
+.styletwo:hover {
+  color: black;
+  letter-spacing: -0.3px;
+}
+
+.stylethree:link,
+.stylethree:visited {
+  color: white;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+}
+
+.stylethree:hover {
+  color: black;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+}
+
+::selection {
+  background: #00e31a;
+  color: white;
+  text-shadow: 1px 1px 1px white, 1px -1px 1px white, -1px 1px 1px white, -1px -1px 1px white;
+}
+
+video::-webkit-media-controls-panel {
+  background-image: none !important;
+  filter: brightness(0.4);
 }
 
 body.bg-active {
-    background-image: url('assets/IDphoto.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  background-image: url('assets/IDphoto.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .text, .text2, .title, .imagesection {
+    font-size: 10pt;
+    max-width: 95%;
+  }
+
+  #ryatvideo, #fwvideo {
+    width: 100%;
+  }
+
+  #clock, .mode {
+    font-size: 10pt;
+    bottom: 5px;
+    right: 10px;
+  }
 }
