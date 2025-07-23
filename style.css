@@ -35,17 +35,14 @@ img.himages {
 }
 
 button {
-  border: none;
-  color: black;
-  cursor: default;
-  background-color: rgba(0, 0, 0, 0.0);
+  all: unset; 
   font-family: "Times New Roman", Times, serif;
   font-size: 0.917rem;
-  display: block;
-  padding: 0;
-  margin: 0;
+  color: black;
+  cursor: default;
   text-decoration: underline;
   letter-spacing: -0.3px;
+  display: block;
 }
 
 #showBg {
