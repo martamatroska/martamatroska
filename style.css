@@ -34,17 +34,6 @@ img.himages {
   margin: 0 0 2px 0;
 }
 
-button {
-  all: unset; 
-  font-family: "Times New Roman", Times, serif;
-  font-size: 0.917rem;
-  color: black;
-  cursor: default;
-  text-decoration: underline;
-  letter-spacing: -0.3px;
-  display: block;
-}
-
 #showBg {
   position: fixed;
   bottom: 10px;
