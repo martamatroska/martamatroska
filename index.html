@@ -115,6 +115,11 @@
                } else {
                btn.textContent = originalText;
          }
+
+                    gtag('event', 'click', {
+                          'event_category': 'interacción',
+                          'event_label': 'Botón Contact'
+        });
     });
             </script>
             <!--
@@ -127,6 +132,10 @@
     document.getElementById('showBg').addEventListener('click', function(e) {
         e.preventDefault(); // evita el salto del enlace
         document.body.classList.toggle('bg-active');
+
+       gtag('event', 'click', {
+  'event_category': 'interacción',
+  'event_label': 'Icono rana (𓆏)'
     });
 </script>
 <script>
