@@ -40,15 +40,14 @@ img.himages {
     right: 35%;
     color: back;
     cursor: pointer;
-    text-decoration: none; /* elimina subrayado */
-    transition: color 0.3s ease;
+    text-decoration: none;
     font-family: "Times New Roman", Times, serif;
     letter-spacing: -0.3px;
     font-size: 11pt;
     z-index: 1000;
-    margin: 0; /* quita márgenes si los hubiera */
-    padding: 0; /* elimina padding si afecta */
-    display: inline-block; /* para mejor control */
+    margin: 0; 
+    padding: 0; 
+    display: inline-block;
 }
 #desktop-link:hover {
     color: white;
