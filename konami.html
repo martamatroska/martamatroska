@@ -2,32 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Draw and Accumulate</title>
+  <title>what's on your mind</title>
   <style>
-    body { font-family: sans-serif; padding: 2rem; background: #eee; }
-    #canvasContainer { display: none; margin-top: 1rem; position: relative; width: 300px; height: 300px; }
-    canvas {
-      border: 1px solid #000;
-      background: #fff;
-      position: absolute;
-      top: 0; left: 0;
+    body { 
+      font-family: "Times New Roman", serif; 
+      padding: 2rem; 
+      background: #fff; 
     }
+    #canvasContainer { display: none; margin-top: 1rem; }
+    canvas { border: 1px solid #000; background: #fff; }
     button { margin-top: 0.5rem; }
   </style>
 </head>
 <body>
-  <h1>My low carbon site</h1>
-  <p>Enter the Konami Code to activate the canvas.</p>
+  <h1>do u know konami code, but without the last letters</h1>
 
   <div id="canvasContainer">
-    <canvas id="backgroundCanvas" width="300" height="300"></canvas>
-    <canvas id="drawCanvas" width="300" height="300"></canvas>
-    <button id="saveBtn">Save Drawing to Background</button>
+    <canvas id="drawCanvas" width="500" height="500"></canvas>
+    <button id="downloadBtn">Download</button>
   </div>
 
   <script>
-    // Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A
-    const secret = [38,38,40,40,37,39,37,39,66,65];
+    // Konami Code: ↑ ↑ ↓ ↓ ← → ← →
+    const secret = [38,38,40,40,37,39,37,39];
     let input = [];
 
     window.addEventListener('keydown', e => {
@@ -39,47 +36,30 @@
       }
     });
 
-    const bgCanvas = document.getElementById('backgroundCanvas');
-    const bgCtx = bgCanvas.getContext('2d');
-
-    const drawCanvas = document.getElementById('drawCanvas');
-    const drawCtx = drawCanvas.getContext('2d');
+    // Drawing on canvas
+    const canvas = document.getElementById('drawCanvas');
+    const ctx = canvas.getContext('2d');
     let drawing = false;
 
-    drawCanvas.addEventListener('mousedown', () => drawing = true);
-    drawCanvas.addEventListener('mouseup', () => drawing = false);
-    drawCanvas.addEventListener('mouseout', () => drawing = false);
-    drawCanvas.addEventListener('mousemove', e => {
+    canvas.addEventListener('mousedown', () => drawing = true);
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseout', () => drawing = false);
+    canvas.addEventListener('mousemove', e => {
       if (!drawing) return;
-      const rect = drawCanvas.getBoundingClientRect();
-      drawCtx.beginPath();
-      drawCtx.arc(e.clientX - rect.left, e.clientY - rect.top, 2, 0, Math.PI * 2);
-      drawCtx.fillStyle = "#000";
-      drawCtx.fill();
+      const rect = canvas.getBoundingClientRect();
+      ctx.beginPath();
+      ctx.arc(e.clientX - rect.left, e.clientY - rect.top, 2, 0, Math.PI * 2);
+      ctx.fillStyle = "#000";
+      ctx.fill();
     });
 
-    document.getElementById('saveBtn').addEventListener('click', () => {
-      // Captura dibujo actual
-      const drawingData = drawCtx.getImageData(0, 0, drawCanvas.width, drawCanvas.height);
-
-      // Crear un canvas temporal para el dibujo actual
-      const tempCanvas = document.createElement('canvas');
-      tempCanvas.width = drawCanvas.width;
-      tempCanvas.height = drawCanvas.height;
-      const tempCtx = tempCanvas.getContext('2d');
-      tempCtx.putImageData(drawingData, 0, 0);
-
-      // Elegir posición aleatoria en bgCanvas (dentro de límites)
-      const maxX = bgCanvas.width - drawCanvas.width;
-      const maxY = bgCanvas.height - drawCanvas.height;
-      const randX = Math.floor(Math.random() * maxX);
-      const randY = Math.floor(Math.random() * maxY);
-
-      // Dibujar el dibujo actual en el fondo en posición aleatoria
-      bgCtx.drawImage(tempCanvas, randX, randY);
-
-      // Limpiar dibujo actual para seguir dibujando
-      drawCtx.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
+    // Download image
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const dataURL = canvas.toDataURL("image/png");
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = 'wtf.png';
+      link.click();
     });
   </script>
 </body>
