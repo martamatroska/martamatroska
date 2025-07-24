@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dibuja y descarga</title>
+  <title>Draw and Accumulate</title>
   <style>
     body { font-family: sans-serif; padding: 2rem; background: #eee; }
-    #canvasContainer { display: none; margin-top: 1rem; }
-    canvas { border: 1px solid #000; background: #fff; }
+    #canvasContainer { display: none; margin-top: 1rem; position: relative; width: 300px; height: 300px; }
+    canvas {
+      border: 1px solid #000;
+      background: #fff;
+      position: absolute;
+      top: 0; left: 0;
+    }
     button { margin-top: 0.5rem; }
   </style>
 </head>
 <body>
-  <h1>Mi sitio low carbon</h1>
-  <p>Introduce el Konami Code para activar el canvas.</p>
+  <h1>My low carbon site</h1>
+  <p>Enter the Konami Code to activate the canvas.</p>
 
   <div id="canvasContainer">
+    <canvas id="backgroundCanvas" width="300" height="300"></canvas>
     <canvas id="drawCanvas" width="300" height="300"></canvas>
-    <button id="downloadBtn">Descargar dibujo</button>
+    <button id="saveBtn">Save Drawing to Background</button>
   </div>
 
   <script>
@@ -33,30 +39,47 @@
       }
     });
 
-    // Dibujo en canvas
-    const canvas = document.getElementById('drawCanvas');
-    const ctx = canvas.getContext('2d');
+    const bgCanvas = document.getElementById('backgroundCanvas');
+    const bgCtx = bgCanvas.getContext('2d');
+
+    const drawCanvas = document.getElementById('drawCanvas');
+    const drawCtx = drawCanvas.getContext('2d');
     let drawing = false;
 
-    canvas.addEventListener('mousedown', () => drawing = true);
-    canvas.addEventListener('mouseup', () => drawing = false);
-    canvas.addEventListener('mouseout', () => drawing = false);
-    canvas.addEventListener('mousemove', e => {
+    drawCanvas.addEventListener('mousedown', () => drawing = true);
+    drawCanvas.addEventListener('mouseup', () => drawing = false);
+    drawCanvas.addEventListener('mouseout', () => drawing = false);
+    drawCanvas.addEventListener('mousemove', e => {
       if (!drawing) return;
-      const rect = canvas.getBoundingClientRect();
-      ctx.beginPath();
-      ctx.arc(e.clientX - rect.left, e.clientY - rect.top, 2, 0, Math.PI * 2);
-      ctx.fillStyle = "#000";
-      ctx.fill();
+      const rect = drawCanvas.getBoundingClientRect();
+      drawCtx.beginPath();
+      drawCtx.arc(e.clientX - rect.left, e.clientY - rect.top, 2, 0, Math.PI * 2);
+      drawCtx.fillStyle = "#000";
+      drawCtx.fill();
     });
 
-    // Descargar imagen
-    document.getElementById('downloadBtn').addEventListener('click', () => {
-      const dataURL = canvas.toDataURL("image/png");
-      const link = document.createElement('a');
-      link.href = dataURL;
-      link.download = 'dibujo.png';
-      link.click();
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      // Captura dibujo actual
+      const drawingData = drawCtx.getImageData(0, 0, drawCanvas.width, drawCanvas.height);
+
+      // Crear un canvas temporal para el dibujo actual
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = drawCanvas.width;
+      tempCanvas.height = drawCanvas.height;
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCtx.putImageData(drawingData, 0, 0);
+
+      // Elegir posición aleatoria en bgCanvas (dentro de límites)
+      const maxX = bgCanvas.width - drawCanvas.width;
+      const maxY = bgCanvas.height - drawCanvas.height;
+      const randX = Math.floor(Math.random() * maxX);
+      const randY = Math.floor(Math.random() * maxY);
+
+      // Dibujar el dibujo actual en el fondo en posición aleatoria
+      bgCtx.drawImage(tempCanvas, randX, randY);
+
+      // Limpiar dibujo actual para seguir dibujando
+      drawCtx.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
     });
   </script>
 </body>
