@@ -43,7 +43,6 @@ img.himages {
 .konami-wrapper a {
     color: white;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 .konami-wrapper a:hover {
