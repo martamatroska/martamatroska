@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Low Carbon Web</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; background: #f0f0f0; }
+    #canvasContainer { display: none; margin-top: 1rem; }
+    canvas { border: 1px solid #000; background: #fff; }
+    button { margin-top: 0.5rem; display: block; }
+  </style>
+</head>
+<body>
+  <h1>Mi web low carbon</h1>
+  <p>Contenido minimalista...</p>
+
+  <div id="canvasContainer">
+    <canvas id="drawCanvas" width="300" height="300"></canvas>
+    <button id="saveBtn">Guardar y Enviar</button>
+  </div>
+
+  <script>
+    // Detectar Konami Code (↑ ↑ ↓ ↓ ← → ← → B A)
+    const secret = [38,38,40,40,37,39,37,39,66,65];
+    let input = [];
+
+    window.addEventListener('keydown', e => {
+      input.push(e.keyCode);
+      if (input.toString().indexOf(secret.toString()) >= 0) {
+        document.getElementById('canvasContainer').style.display = 'block';
+        input = [];
+      }
+    });
+
+    // Dibujo en canvas
+    const canvas = document.getElementById('drawCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+
+    canvas.addEventListener('mousedown', () => drawing = true);
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mousemove', draw);
+
+    function draw(e) {
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.fillStyle = "#000";
+      ctx.beginPath();
+      ctx.arc(e.clientX - rect.left, e.clientY - rect.top, 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Guardar y enviar
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      const dataURL = canvas.toDataURL("image/png");
+
+      fetch("TU_ENDPOINT_AQUI", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: dataURL })
+      }).then(res => alert("¡Dibujo enviado!"))
+        .catch(err => alert("Error al enviar"));
+    });
+  </script>
+</body>
+</html>
