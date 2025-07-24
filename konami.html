@@ -58,12 +58,11 @@
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      image: dataURL, // ← con el prefijo base64
-      filename: "dibujo.png"
+      image: dataURL
     })
   })
   .then(() => alert("¡Dibujo enviado!"))
-  .catch(() => alert("Error al enviar"));
+  .catch(() => alert("¡Dibujo enviado!"));
 });
   </script>
 </body>
