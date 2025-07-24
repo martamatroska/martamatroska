@@ -51,18 +51,20 @@
     }
 
     // Guardar y enviar
-    document.getElementById('saveBtn').addEventListener('click', () => {
-      const dataURL = canvas.toDataURL("image/png");
-      // quitar prefijo "data:image/png;base64,"
-      const base64Image = dataURL.split(",")[1];
+   document.getElementById('saveBtn').addEventListener('click', () => {
+  const dataURL = canvas.toDataURL("image/png");
 
-      fetch("https://hooks.zapier.com/hooks/catch/23929169/uu5tzch/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image: base64Image, filename: "dibujo.png"})
-      }).then(res => alert("¡Dibujo enviado!"))
-        .catch(err => alert("Error al enviar"));
-    });
+  fetch("https://hooks.zapier.com/hooks/catch/23929169/uu5tzch/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      image: dataURL, // ← con el prefijo base64
+      filename: "dibujo.png"
+    })
+  })
+  .then(() => alert("¡Dibujo enviado!"))
+  .catch(() => alert("Error al enviar"));
+});
   </script>
 </body>
 </html>
