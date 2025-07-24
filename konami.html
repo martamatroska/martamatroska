@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Canvas Secreto</title>
+  <title>Dibuja y descarga</title>
   <style>
     body { font-family: sans-serif; padding: 2rem; background: #eee; }
     #canvasContainer { display: none; margin-top: 1rem; }
@@ -12,11 +12,11 @@
 </head>
 <body>
   <h1>Mi sitio low carbon</h1>
-  <p>Texto básico y limpio...</p>
+  <p>Introduce el Konami Code para activar el canvas.</p>
 
   <div id="canvasContainer">
     <canvas id="drawCanvas" width="300" height="300"></canvas>
-    <button id="saveBtn">Enviar dibujo</button>
+    <button id="downloadBtn">Descargar dibujo</button>
   </div>
 
   <script>
@@ -33,6 +33,7 @@
       }
     });
 
+    // Dibujo en canvas
     const canvas = document.getElementById('drawCanvas');
     const ctx = canvas.getContext('2d');
     let drawing = false;
@@ -49,15 +50,13 @@
       ctx.fill();
     });
 
-    document.getElementById('saveBtn').addEventListener('click', () => {
+    // Descargar imagen
+    document.getElementById('downloadBtn').addEventListener('click', () => {
       const dataURL = canvas.toDataURL("image/png");
-      fetch("https://script.google.com/macros/s/AKfycbwLWvM5ltegfiADmhO4ctsDYetAh98CFqC2dNZO5ymKbyEf0WKjiT0Hj1bg-UVYg131GQ/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image: dataURL, filename: "dibujo.png" })
-      })
-      .then(() => alert("¡Enviado a Drive!"))
-      .catch(() => alert("Error al enviar"));
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = 'dibujo.png';
+      link.click();
     });
   </script>
 </body>
