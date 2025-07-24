@@ -52,13 +52,14 @@
 
     // Guardar y enviar
    document.getElementById('saveBtn').addEventListener('click', () => {
-  const dataURL = canvas.toDataURL("image/png");
+    const dataURL = canvas.toDataURL("image/png");
 
-  fetch("https://hooks.zapier.com/hooks/catch/23929169/uu5tzch/", {
+  fetch("https://script.google.com/macros/s/AKfycbxZLCQh3rdzJ-obWdVi0Ps-YN4A8HXzZ6Sgb21vez62Hk3ru9SKRBugZ8uvvGysw-KYWQ/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       image: dataURL
+      filename: "dibujo.png" 
     })
   })
   .then(() => alert("¡Dibujo enviado!"))
