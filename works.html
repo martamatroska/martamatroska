@@ -3,8 +3,55 @@
 		<head>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
  		<title>MARTA [WORKS]</title>
+	<script type='text/javascript' src='jquery.js'></script>
+	<script type='text/javascript'> src='cursor.js'></script>
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+	</script>
+	  <link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+	function startTime() {
+	  var today = new Date();
+	  var h = today.getHours();
+	  var m = today.getMinutes();
+	  var s = today.getSeconds();
+	  m = checkTime(m);
+	  s = checkTime(s);
+	  document.getElementById('clock').innerHTML =
+	  h + ":" + m + ":" + s;
+	  var t = setTimeout(startTime, 500);
+	}
+	function checkTime(i) {
+	  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+	  return i;
+	}
+	</script>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<script  type='text/javascript'>
+  function fullScreen() {
+    if (!window.isFs) $(".mejs__fullscreen-button > button").trigger('click');
+    else  $(".mejs__unfullscreen > button").trigger('click');
+  }
+</script>
+<div class="mode">
+
+			<span class="change">✺</span>
+	</div>
+<script>
+        $( ".change" ).on("click", function() {
+            if( $( "body" ).hasClass( "dark" )) {
+                $( "body" ).removeClass( "dark" );
+                $( ".change" ).text( "✺" );
+            } else {
+                $( "body" ).addClass( "dark" );
+                $( ".change" ).text( "❋" );
+            }
+        });
+    </script>
 		<style>
-		 <link rel="stylesheet" type="text/css" href="style.css">
+
 			.change {
 					cursor: pointer;
 
@@ -150,7 +197,7 @@
 					}
 	</style>
 </head>
-<body>
+<body onload="startTime()">
     <div id="content">
         <div class="container">
             <div class="text">
@@ -344,53 +391,9 @@ Residente - René <i>(Visualizer)</i><br> 7 mins 38 seconds, 1920×1080</div>
 </div>
 <div id="clock"></div>
 </div>
-	<script src="cursor.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js">
-	</script>
-	<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    startTime();
-  });
 
-  function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
-    setTimeout(startTime, 500);
-  }
-
-  function checkTime(i) {
-    return (i < 10) ? "0" + i : i;
-  }
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
-<script  type='text/javascript'>
-  function fullScreen() {
-    if (!window.isFs) $(".mejs__fullscreen-button > button").trigger('click');
-    else  $(".mejs__unfullscreen > button").trigger('click');
-  }
-</script>
-<div class="mode">
-
-			<span class="change">✺</span>
-	</div>
-<script>
-        $( ".change" ).on("click", function() {
-            if( $( "body" ).hasClass( "dark" )) {
-                $( "body" ).removeClass( "dark" );
-                $( ".change" ).text( "✺" );
-            } else {
-                $( "body" ).addClass( "dark" );
-                $( ".change" ).text( "❋" );
-            }
-        });
-    </script>
 
 		</body>
+
+		</script>
 		</html>
