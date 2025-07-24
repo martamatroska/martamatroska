@@ -34,25 +34,21 @@ img.himages {
   margin: 0 0 2px 0;
 }
 
-#desktop-link {
-    position: fixed;
-    top: 20%;
-    right: 35%;
-    color: back;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: "Times New Roman", Times, serif;
-    letter-spacing: -0.3px;
-    font-size: 11pt;
-    z-index: 1000;
-    margin: 0; 
-    padding: 0; 
-    display: inline-block;
-}
-#desktop-link:hover {
-    color: white;
+.konami-wrapper {
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
 }
 
+.konami-wrapper a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.konami-wrapper a:hover {
+    color: black;
+}
 
 #showBg {
   position: fixed;
