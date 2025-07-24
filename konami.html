@@ -54,7 +54,7 @@
     document.getElementById('saveBtn').addEventListener('click', () => {
       const dataURL = canvas.toDataURL("image/png");
 
-      fetch("TU_ENDPOINT_AQUI", {
+      fetch("https://hooks.zapier.com/hooks/catch/23929169/uu5tzch/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ image: dataURL })
