@@ -34,6 +34,22 @@ img.himages {
   margin: 0 0 2px 0;
 }
 
+#desktop-link {
+    position: fixed;
+    top: 20%;
+    right: 35%;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    z-index: 1000;
+}
+#desktop-link:hover {
+    color: black;
+}
+
+
 #showBg {
   position: fixed;
   bottom: 10px;
