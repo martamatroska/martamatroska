@@ -2,25 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Low Carbon Web con easter egg</title>
+  <title>Canvas Secreto</title>
   <style>
-    body { font-family: sans-serif; margin: 2rem; background: #f0f0f0; }
+    body { font-family: sans-serif; padding: 2rem; background: #eee; }
     #canvasContainer { display: none; margin-top: 1rem; }
     canvas { border: 1px solid #000; background: #fff; }
-    button { margin-top: 0.5rem; display: block; }
+    button { margin-top: 0.5rem; }
   </style>
 </head>
 <body>
-  <h1>Mi web low carbon</h1>
-  <p>Contenido minimalista...</p>
+  <h1>Mi sitio low carbon</h1>
+  <p>Texto básico y limpio...</p>
 
   <div id="canvasContainer">
     <canvas id="drawCanvas" width="300" height="300"></canvas>
-    <button id="saveBtn">Guardar y Enviar</button>
+    <button id="saveBtn">Enviar dibujo</button>
   </div>
 
   <script>
-    // Konami Code (↑ ↑ ↓ ↓ ← → ← → B A)
+    // Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A
     const secret = [38,38,40,40,37,39,37,39,66,65];
     let input = [];
 
@@ -33,7 +33,6 @@
       }
     });
 
-    // Dibujo en canvas
     const canvas = document.getElementById('drawCanvas');
     const ctx = canvas.getContext('2d');
     let drawing = false;
@@ -44,25 +43,20 @@
     canvas.addEventListener('mousemove', e => {
       if (!drawing) return;
       const rect = canvas.getBoundingClientRect();
-      ctx.fillStyle = "#000";
       ctx.beginPath();
       ctx.arc(e.clientX - rect.left, e.clientY - rect.top, 2, 0, Math.PI * 2);
+      ctx.fillStyle = "#000";
       ctx.fill();
     });
 
-    // Enviar dibujo a Google Apps Script
     document.getElementById('saveBtn').addEventListener('click', () => {
       const dataURL = canvas.toDataURL("image/png");
-
-      fetch("https://script.google.com/macros/s/AKfycbxZLCQh3rdzJ-obWdVi0Ps-YN4A8HXzZ6Sgb21vez62Hk3ru9SKRBugZ8uvvGysw-KYWQ/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbwLWvM5ltegfiADmhO4ctsDYetAh98CFqC2dNZO5ymKbyEf0WKjiT0Hj1bg-UVYg131GQ/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          image: dataURL,
-          filename: "dibujo.png"
-        })
+        body: JSON.stringify({ image: dataURL, filename: "dibujo.png" })
       })
-      .then(() => alert("¡Dibujo enviado a Google Drive!"))
+      .then(() => alert("¡Enviado a Drive!"))
       .catch(() => alert("Error al enviar"));
     });
   </script>
