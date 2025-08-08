@@ -140,15 +140,37 @@
         </div>
     </div>
 <script>
-    document.getElementById('showBg').addEventListener('click', function(e) {
-        e.preventDefault(); // evita el salto del enlace
-        document.body.classList.toggle('bg-active');
+let frogClickCount = 0;
+const showBg = document.getElementById('showBg');
+const dniContainer = document.getElementById('dniContainer');
+const dniImage = document.getElementById('dniImage');
+const fotos = ['foto01.jpg', 'foto02.jpg', 'foto03.jpg', 'foto04.jpg'];
 
-       gtag('event', 'click', {
-  'event_category': 'interacción',
-  'event_label': 'Icono rana (𓆏)'
+showBg.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    if (frogClickCount < fotos.length) {
+        dniImage.src = fotos[frogClickCount];
+        dniContainer.style.display = 'block';
+
+        // Mueve la rana (alternancia de posición simple)
+        if (frogClickCount % 2 === 0) {
+            showBg.style.position = "absolute";
+            showBg.style.left = "70%";
+        } else {
+            showBg.style.left = "20%";
+        }
+
+        frogClickCount++;
+    }
+
+    gtag('event', 'click', {
+        'event_category': 'interacción',
+        'event_label': 'Icono rana (𓆏)'
     });
+});
 </script>
+
 <script>
 let count = 0;
 const counter = document.getElementById("counter");
@@ -182,6 +204,11 @@ document.getElementById("star").addEventListener("click", function(e) {
 });
 
 </script>
+
+<div id="dniContainer" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+z-index: 1000;">
+    <img id="dniImage" src="" style="max-width: 80vw; max-height: 80vh;" />
+</div>
 
 </body>
 </html>
