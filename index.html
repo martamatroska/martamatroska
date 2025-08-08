@@ -111,6 +111,38 @@
                     <a href="konami.html" class="styleone">only for desktop</a>
                 </div>
                 
+<script>
+let frogClickCount = 0;
+const showBg = document.getElementById('showBg');
+const dniContainer = document.getElementById('dniContainer');
+const dniImage = document.getElementById('dniImage');
+const fotos = ['assets/foto01.png', 'assets/foto02.png', 'assets/foto03.png', 'assets/foto04.png'];
+
+
+showBg.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    if (frogClickCount < fotos.length) {
+        dniImage.src = fotos[frogClickCount];
+        dniContainer.style.display = 'block';
+
+        // Mueve la rana (alternancia de posición simple)
+        if (frogClickCount % 2 === 0) {
+            showBg.style.position = "absolute";
+            showBg.style.left = "70%";
+        } else {
+            showBg.style.left = "20%";
+        }
+
+        frogClickCount++;
+    }
+
+    gtag('event', 'click', {
+        'event_category': 'interacción',
+        'event_label': 'Icono rana (𓆏)'
+    });
+});
+</script>
             </div>
 
           
@@ -139,37 +171,7 @@
             <div id="clock"></div>
         </div>
     </div>
-<script>
-let frogClickCount = 0;
-const showBg = document.getElementById('showBg');
-const dniContainer = document.getElementById('dniContainer');
-const dniImage = document.getElementById('dniImage');
-const fotos = ['foto01.png', 'foto02.png', 'foto03.png', 'foto04.png'];
 
-showBg.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    if (frogClickCount < fotos.length) {
-        dniImage.src = fotos[frogClickCount];
-        dniContainer.style.display = 'block';
-
-        // Mueve la rana (alternancia de posición simple)
-        if (frogClickCount % 2 === 0) {
-            showBg.style.position = "absolute";
-            showBg.style.left = "70%";
-        } else {
-            showBg.style.left = "20%";
-        }
-
-        frogClickCount++;
-    }
-
-    gtag('event', 'click', {
-        'event_category': 'interacción',
-        'event_label': 'Icono rana (𓆏)'
-    });
-});
-</script>
 
 <script>
 let count = 0;
