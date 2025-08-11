@@ -129,21 +129,13 @@ showBg.addEventListener('click', function(e) {
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
 
- // Posición de la rana según click
+// Posición aleatoria
+    const randomTop = Math.floor(Math.random() * (window.innerHeight - showBg.offsetHeight));
+    const randomLeft = Math.floor(Math.random() * (window.innerWidth - showBg.offsetWidth));
+
     showBg.style.position = "absolute";
-    if (frogClickCount % 2 === 0) {
-        // Arriba
-        showBg.style.top = "100px";
-        showBg.style.left = "50%";
-        showBg.style.transform = "translateX(-50%)";
-    } else {
-        // Abajo-derecha
-        showBg.style.bottom = "100px";
-        showBg.style.right = "120px";
-        showBg.style.left = "auto";
-        showBg.style.top = "auto";
-        showBg.style.transform = "none";
-    }
+    showBg.style.top = `${randomTop}px`;
+    showBg.style.left = `${randomLeft}px`;
 
     // Avanza al siguiente índice, vuelve a 0 si llega al final
     frogClickCount = (frogClickCount + 1) % fotos.length;
