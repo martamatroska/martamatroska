@@ -50,6 +50,7 @@ img.himages {
 }
 
 #showBg {
+  color: #00e31a;
   position: fixed;
   bottom: 10px;
   left: 10px;
