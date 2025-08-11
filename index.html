@@ -114,28 +114,23 @@
 <script>
 let frogClickCount = 0;
 const showBg = document.getElementById('showBg');
-const dniContainer = document.getElementById('dniContainer');
-const dniImage = document.getElementById('dniImage');
-const fotos = ['assets/foto01.png', 'assets/foto02.png', 'assets/foto03.png', 'assets/foto04.png'];
-
+const fotos = [
+    'assets/foto01.png',
+    'assets/foto02.png',
+    'assets/foto03.png',
+    'assets/foto04.png'
+];
 
 showBg.addEventListener('click', function(e) {
     e.preventDefault();
 
-    if (frogClickCount < fotos.length) {
-        dniImage.src = fotos[frogClickCount];
-        dniContainer.style.display = 'block';
+    // Cambia el background
+    document.body.style.backgroundImage = `url('${fotos[frogClickCount]}')`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
 
-        // Mueve la rana (alternancia de posición simple)
-        if (frogClickCount % 2 === 0) {
-            showBg.style.position = "absolute";
-            showBg.style.left = "70%";
-        } else {
-            showBg.style.left = "20%";
-        }
-
-        frogClickCount++;
-    }
+    // Avanza al siguiente índice, vuelve a 0 si llega al final
+    frogClickCount = (frogClickCount + 1) % fotos.length;
 
     gtag('event', 'click', {
         'event_category': 'interacción',
@@ -143,6 +138,7 @@ showBg.addEventListener('click', function(e) {
     });
 });
 </script>
+
             </div>
 
           
