@@ -129,6 +129,22 @@ showBg.addEventListener('click', function(e) {
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
 
+ // Posición de la rana según click
+    showBg.style.position = "absolute";
+    if (frogClickCount % 2 === 0) {
+        // Arriba
+        showBg.style.top = "10px";
+        showBg.style.left = "50%";
+        showBg.style.transform = "translateX(-50%)";
+    } else {
+        // Abajo-derecha
+        showBg.style.bottom = "10px";
+        showBg.style.right = "10px";
+        showBg.style.left = "auto";
+        showBg.style.top = "auto";
+        showBg.style.transform = "none";
+    }
+
     // Avanza al siguiente índice, vuelve a 0 si llega al final
     frogClickCount = (frogClickCount + 1) % fotos.length;
 
