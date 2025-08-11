@@ -130,11 +130,11 @@ showBg.addEventListener('click', function(e) {
     document.body.style.backgroundPosition = 'center';
 
 // Posición aleatoria
-    const randomTop = Math.floor(Math.random() * (window.innerHeight - showBg.offsetHeight));
+    const randomBottom = Math.floor(Math.random() * (window.innerHeight - showBg.offsetHeight));
     const randomLeft = Math.floor(Math.random() * (window.innerWidth - showBg.offsetWidth));
 
     showBg.style.position = "absolute";
-    showBg.style.top = `${randomTop}px`;
+    showBg.style.bottom = `${randomBottom}px`;
     showBg.style.left = `${randomLeft}px`;
 
     // Avanza al siguiente índice, vuelve a 0 si llega al final
