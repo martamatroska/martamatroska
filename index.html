@@ -9,6 +9,24 @@
     <!-- FAVICON --> 
     <link rel="icon" href="assets/favicon.png">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+      <style>
+        #info {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: pre-wrap;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f9f9f9;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+      </style>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -53,7 +71,7 @@
         <div class="container">
             <div class="text">
                 <a href="#" class="styleone" id="egg">*</a>
-                <div id="info" style="white-space: pre-wrap; margin-top: 1em;"></div>
+                <div id="info"></div>
                 <br>
                 <img src="assets/AE-logo-old.png" alt="AE Logo" style="height: 1em; vertical-align: baseline;"> My name is Marta Ferrero and I'm a Postproduction Artist working at 
                 <a href="https://www.canadacanada.com/" target="_blank">CANADA</a>
@@ -229,11 +247,14 @@ document.getElementById("star").addEventListener("click", function(e) {
     const lang = navigator.language;
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    document.getElementById('info').textContent =
+    const infoBox = document.getElementById('info');
+    infoBox.style.display = "block"; // se muestra al hacer clic
+    infoBox.textContent =
       `IP Address: ${ip}\n` +
       `Browser / OS: ${ua}\n` +
       `Language: ${lang}\n` +
       `Time Zone: ${tz}`;
+      
   });
 </script>
 
