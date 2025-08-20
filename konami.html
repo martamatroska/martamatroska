@@ -38,7 +38,7 @@
 
   <div id="canvasContainer">
     <canvas id="drawCanvas" width="500" height="500"></canvas>
-    <button id="downloadBtn">Download</button>
+    <button id="downloadBtn">download!!</button>
   </div>
 
   <script>
@@ -55,6 +55,19 @@
       }
     });
 
+    // Expanding download
+                const btn = document.getElementById('downloadBtn'); // Obtiene el botón
+                const originalText = btn.textContent; // Guarda el texto original
+
+                btn.addEventListener('click', function handleClick() { 
+                    // Alterna entre el texto original y el email
+               if (btn.textContent === originalText) {
+               btn.textContent = 'download!!  (and send it to @marta.mkv, because I want to be a proud collector )';
+               } else {
+               btn.textContent = originalText;
+         }
+    });
+    
     // Drawing on canvas
     const canvas = document.getElementById('drawCanvas');
     const ctx = canvas.getContext('2d');
