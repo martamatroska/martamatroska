@@ -200,10 +200,10 @@ body.bg-active {
 
 #downloadBtn {
   font-family: inherit;
-  font-size: inherit;
+  font-size: 11pt;
   background: none;
   border: none;
-  color: blue;
+  color: black;
   text-decoration: underline;
   cursor: pointer;
   padding: 0;
