@@ -52,7 +52,7 @@
     <div id="content">
         <div class="container">
             <div class="text">
-                <a class="styleone" href="#">*</a>
+                <a class="styleone" href="#" id="egg">*</a>
                 <br>
                 <img src="assets/AE-logo-old.png" alt="AE Logo" style="height: 1em; vertical-align: baseline;"> My name is Marta Ferrero and I'm a Postproduction Artist working at 
                 <a href="https://www.canadacanada.com/" target="_blank">CANADA</a>
@@ -209,6 +209,31 @@ document.getElementById("star").addEventListener("click", function(e) {
     }
 });
 
+</script>
+
+<script>
+  async function getIP() {
+    try {
+      const res = await fetch('https://api.ipify.org?format=json');
+      const data = await res.json();
+      return data.ip;
+    } catch {
+      return 'Unavailable';
+    }
+  }
+
+  document.getElementById('egg').addEventListener('click', async () => {
+    const ip = await getIP();
+    const ua = navigator.userAgent;
+    const lang = navigator.language;
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    document.getElementById('info').textContent =
+      `IP Address: ${ip}\n` +
+      `Browser / OS: ${ua}\n` +
+      `Language: ${lang}\n` +
+      `Time Zone: ${tz}`;
+  });
 </script>
 
 </body>
