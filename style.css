@@ -197,3 +197,15 @@ body.bg-active {
     right: 10px;
   }
 }
+
+#downloadBtn {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
