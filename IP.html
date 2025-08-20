@@ -1,17 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Easter Egg</title>
-<style>
-  body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f0f0; }
-  #egg { cursor: pointer; padding: 1rem 2rem; background: #333; color: #fff; border-radius: 8px; }
-  #info { margin-top: 1rem; font-size: 0.9rem; color: #333; white-space: pre-wrap; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div>
+<div class="egg-container">
   <div id="egg">*</div>
   <div id="info"></div>
 </div>
@@ -23,7 +19,7 @@
       const data = await res.json();
       return data.ip;
     } catch {
-      return 'No disponible';
+      return 'Unavailable';
     }
   }
 
@@ -34,10 +30,10 @@
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     document.getElementById('info').textContent =
-      `Dirección IP: ${ip}\n` +
-      `Navegador / SO: ${ua}\n` +
-      `Idioma: ${lang}\n` +
-      `Zona horaria: ${tz}`;
+      `IP Address: ${ip}\n` +
+      `Browser / OS: ${ua}\n` +
+      `Language: ${lang}\n` +
+      `Time Zone: ${tz}`;
   });
 </script>
 
