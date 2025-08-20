@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Easter Egg</title>
+<style>
+  body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f0f0; }
+  #egg { cursor: pointer; padding: 1rem 2rem; background: #333; color: #fff; border-radius: 8px; }
+  #info { margin-top: 1rem; font-size: 0.9rem; color: #333; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+
+<div>
+  <div id="egg">*</div>
+  <div id="info"></div>
+</div>
+
+<script>
+  async function getIP() {
+    try {
+      const res = await fetch('https://api.ipify.org?format=json');
+      const data = await res.json();
+      return data.ip;
+    } catch {
+      return 'No disponible';
+    }
+  }
+
+  document.getElementById('egg').addEventListener('click', async () => {
+    const ip = await getIP();
+    const ua = navigator.userAgent;
+    const lang = navigator.language;
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    document.getElementById('info').textContent =
+      `Dirección IP: ${ip}\n` +
+      `Navegador / SO: ${ua}\n` +
+      `Idioma: ${lang}\n` +
+      `Zona horaria: ${tz}`;
+  });
+</script>
+
+</body>
+</html>
