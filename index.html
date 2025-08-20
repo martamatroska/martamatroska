@@ -19,9 +19,6 @@
       transform: translate(-50%, -50%);
       white-space: pre-wrap;
       padding: 1em;
-      border: 0px solid #ccc;
-      border-radius: 0px;
-      background: none;
       max-width: 400px;
       text-align: left;
     }
@@ -240,21 +237,27 @@ document.getElementById("star").addEventListener("click", function(e) {
     }
   }
 
-  document.getElementById('egg').addEventListener('click', async () => {
-    const ip = await getIP();
-    const ua = navigator.userAgent;
-    const lang = navigator.language;
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+ document.getElementById('egg').addEventListener('click', async () => {
+  const infoBox = document.getElementById('info');
 
-    const infoBox = document.getElementById('info');
-    infoBox.style.display = "block"; // se muestra al hacer clic
-    infoBox.textContent =
-      `IP Address: ${ip}\n` +
-      `Browser / OS: ${ua}\n` +
-      `Language: ${lang}\n` +
-      `Time Zone: ${tz}`;
-      
-  });
+  if (infoBox.style.display === "block") {
+    infoBox.style.display = "none";
+    return;
+  }
+
+  const ip = await getIP();
+  const ua = navigator.userAgent;
+  const lang = navigator.language;
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  infoBox.textContent =
+    `IP Address: ${ip}\n` +
+    `Browser / OS: ${ua}\n` +
+    `Language: ${lang}\n` +
+    `Time Zone: ${tz}`;
+
+  infoBox.style.display = "block";
+});
 </script>
 
 </body>
