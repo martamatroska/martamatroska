@@ -209,3 +209,8 @@ body.bg-active {
   padding: 0;
 }
 
+.tabloid {
+    position: absolute;
+    bottom: 40%;
+    right: 60%;
+}
