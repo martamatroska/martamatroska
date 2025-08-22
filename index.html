@@ -127,6 +127,9 @@
                     <a href="konami.html" class="styleone">only for desktop</a>
                 </div>
                 
+                <a href="#" class="styleone" id="tabloid">*</a>
+
+
 <script>
 let frogClickCount = 0;
 const showBg = document.getElementById('showBg');
@@ -260,6 +263,18 @@ document.getElementById("star").addEventListener("click", function(e) {
   infoBox.style.display = "block";
 });
 </script>
+
+    <script>
+const tabloid = document.getElementById('tabloid');
+const tabloidBg = document.getElementById('tabloidBg');
+
+tabloid.addEventListener('click', e => {
+    e.preventDefault();
+    tabloidBg.style.display = 'block';
+});
+</script>
+
+<div id="tabloidBg"></div>
 
 </body>
 </html>
