@@ -144,8 +144,12 @@
                 <a href="#" class="styleone" id="tabloid">*</a>
 
 <script>
-  document.querySelector('.tabloid').addEventListener('click', function() {
-    document.body.style.backgroundImage = "url('assets/tabloid01.png')";
+  document.getElementById('tabloid').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.body.style.backgroundImage = "url('assets/tabloid01.png')";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundPosition = "center";
+
   });
 </script>
 
