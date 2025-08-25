@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 <head>
@@ -42,17 +41,55 @@
   </div>
 
   <script>
-    // Konami Code: ↑ ↑ ↓ ↓ ← → ← →
-    const secret = [38,38,40,40,37,39,37,39];
-    let input = [];
+    // --- KONAMI CODE ---
+    const secretKeys = [38,38,40,40,37,39,37,39];
+    const secretGestures = ["up","up","down","down","left","right","left","right"];
+    let inputKeys = [];
+    let inputGestures = [];
+
+    // Versión teclado (PC)
     window.addEventListener('keydown', e => {
-      input.push(e.keyCode);
-      if (input.length > secret.length) input.shift();
-      if (input.toString() === secret.toString()) {
+      inputKeys.push(e.keyCode);
+      if (inputKeys.length > secretKeys.length) inputKeys.shift();
+      if (inputKeys.toString() === secretKeys.toString()) {
         document.getElementById('canvasContainer').style.display = 'block';
-        input = [];
+        inputKeys = [];
       }
     });
+
+    // Versión móvil (swipes)
+    let touchStartX = 0, touchStartY = 0;
+    let touchEndX = 0, touchEndY = 0;
+
+    function handleGesture() {
+      const dx = touchEndX - touchStartX;
+      const dy = touchEndY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        if (dx > 30) return "right";
+        if (dx < -30) return "left";
+      } else {
+        if (dy > 30) return "down";
+        if (dy < -30) return "up";
+      }
+    }
+
+    document.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, false);
+
+    document.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      const gesture = handleGesture();
+      if (!gesture) return;
+      inputGestures.push(gesture);
+      if (inputGestures.length > secretGestures.length) inputGestures.shift();
+      if (inputGestures.toString() === secretGestures.toString()) {
+        document.getElementById('canvasContainer').style.display = 'block';
+        inputGestures = [];
+      }
+    }, false);
 
     // Expanding download text
     const btn = document.getElementById('downloadBtn'); 
@@ -82,6 +119,11 @@
       ctx.fill();
     });
 
+    // Borrar canvas con doble click
+    canvas.addEventListener('dblclick', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
     // --- localStorage ---
     const gallery = document.getElementById("gallery");
     const savedImages = JSON.parse(localStorage.getItem("galleryImages") || "[]");
@@ -107,11 +149,6 @@
       savedImages.push(dataURL);
       localStorage.setItem("galleryImages", JSON.stringify(savedImages));
     });
-
-     canvas.addEventListener('dblclick', () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    });
-    
   </script>
 </body>
 </html>
