@@ -1,51 +1,50 @@
+
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
-  
 <head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>↑ ↑ ↓ ↓ ← → ← →</title> 
- <!-- FAVICON --> 
-    <link rel="icon" href="assets/favicon.png">
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- FAVICON --> 
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <style>
     #canvasContainer { display: none; margin-top: 1rem; }
     canvas { border: 1px solid #000; background: #fff; }
     button { margin-top: 0.5rem; }
+    #gallery { margin-top:1rem; display:grid; grid-template-columns:repeat(auto-fill,150px); gap:10px; }
+    #gallery img { max-width:150px; border:1px solid #ccc; }
   </style>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F9YHR26YNQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-F9YHR26YNQ');
-</script>
-
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9YHR26YNQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F9YHR26YNQ');
+  </script>
 </head>
 <body>
   <div id="content">
-        <div class="container">
-            <div class="text">
-                <a class="styleone">*</a>
-                <br>
-                what's on your mind?
-               </div>
- </div>
- </div>
-
+    <div class="container">
+      <div class="text">
+        <a class="styleone">*</a>
+        <br>
+        what's on your mind?
+      </div>
+    </div>
+  </div>
 
   <div id="canvasContainer">
     <canvas id="drawCanvas" width="500" height="500"></canvas>
     <button id="downloadBtn">download!</button>
+    <div id="gallery"></div>
   </div>
 
   <script>
     // Konami Code: ↑ ↑ ↓ ↓ ← → ← →
     const secret = [38,38,40,40,37,39,37,39];
     let input = [];
-
     window.addEventListener('keydown', e => {
       input.push(e.keyCode);
       if (input.length > secret.length) input.shift();
@@ -55,19 +54,17 @@
       }
     });
 
-    // Expanding download
-                const btn = document.getElementById('downloadBtn'); // Obtiene el botón
-                const originalText = btn.textContent; // Guarda el texto original
-
-                btn.addEventListener('click', function handleClick() { 
-                    // Alterna entre el texto original y el email
-               if (btn.textContent === originalText) {
-               btn.textContent = 'download!  (and please send it to me, because I want to be a proud collector)';
-               } else {
-               btn.textContent = originalText;
-         }
+    // Expanding download text
+    const btn = document.getElementById('downloadBtn'); 
+    const originalText = btn.textContent; 
+    btn.addEventListener('click', function handleClick() { 
+      if (btn.textContent === originalText) {
+        btn.textContent = 'download! (and please send it to me, because I want to be a proud collector)';
+      } else {
+        btn.textContent = originalText;
+      }
     });
-    
+
     // Drawing on canvas
     const canvas = document.getElementById('drawCanvas');
     const ctx = canvas.getContext('2d');
@@ -85,13 +82,35 @@
       ctx.fill();
     });
 
-    // Download image
+    // --- localStorage ---
+    const gallery = document.getElementById("gallery");
+    const savedImages = JSON.parse(localStorage.getItem("galleryImages") || "[]");
+
+    // cargar imágenes guardadas
+    savedImages.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      gallery.appendChild(img);
+    });
+
+    // al guardar, descargar y también añadir a galería/localStorage
     document.getElementById('downloadBtn').addEventListener('click', () => {
       const dataURL = canvas.toDataURL("image/png");
+
+      // descargar
       const link = document.createElement('a');
       link.href = dataURL;
       link.download = 'wtf.png';
       link.click();
+
+      // mostrar en galería
+      const img = document.createElement("img");
+      img.src = dataURL;
+      gallery.appendChild(img);
+
+      // guardar en localStorage
+      savedImages.push(dataURL);
+      localStorage.setItem("galleryImages", JSON.stringify(savedImages));
     });
   </script>
 </body>
