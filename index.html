@@ -153,20 +153,20 @@ const fotos = [
 
 const textos = [
     "Born: Granada",
-    "Born: Granada Raised: Valencia",
-    "Born: Granada Raised: Valencia Based: Barcelona",
-    "Born: Granada Raised: Valencia Based: Barcelona I enjoy geeky stuff, quiet environments, people (in small doses), animals (in all doses), books, <2h movies, >2h playlists, natur3"
+    "Born: Granada\nRaised: Valencia",
+    "Born: Granada | Raised: Valencia | Based: Barcelona",
+    "Born: Granada | Raised: Valencia | Based: Barcelona | I enjoy geeky stuff, quiet environments, people (in small doses), animals (in all doses), books, <2h movies, >2h playlists, nature, and watching the world like it’s a documentary. I studied oceanography, now I bend pixels as a VFX artist. Gemini (if that matters). Eternally learning."
 ];
 
-// Crear el div para el texto
+// description text
 let textoDiv = document.createElement('div');
-textoDiv.style.position = 'fixed'; // fijo en la ventana
-textoDiv.style.top = '50%';
+textoDiv.style.position = 'fixed';
+textoDiv.style.top = '70%';
 textoDiv.style.left = '50%';
-textoDiv.style.transform = 'translate(-50%, -50%)'; // centra exactamente
+textoDiv.style.transform = 'translate(-50%, -50%)'; 
 textoDiv.style.color = 'black';
 textoDiv.style.fontSize = '11pt';
-textoDiv.style.maxWidth = '80%';  // ajustable
+textoDiv.style.maxWidth = '80%';  // adjustable
 textoDiv.style.wordWrap = 'break-word';
 textoDiv.style.textAlign = 'right';
 document.body.appendChild(textoDiv);
