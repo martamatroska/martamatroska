@@ -30,7 +30,7 @@
       <div class="text">
         <a class="styleone">*</a>
         <br>
-        what's on your mind?
+        what's on your mind? (double click to start again)
       </div>
     </div>
   </div>
@@ -86,32 +86,32 @@
     const gallery = document.getElementById("gallery");
     const savedImages = JSON.parse(localStorage.getItem("galleryImages") || "[]");
 
-    // cargar imágenes guardadas
     savedImages.forEach(src => {
       const img = document.createElement("img");
       img.src = src;
       gallery.appendChild(img);
     });
 
-    // al guardar, descargar y también añadir a galería/localStorage
     document.getElementById('downloadBtn').addEventListener('click', () => {
       const dataURL = canvas.toDataURL("image/png");
 
-      // descargar
       const link = document.createElement('a');
       link.href = dataURL;
       link.download = 'wtf.png';
       link.click();
 
-      // mostrar en galería
       const img = document.createElement("img");
       img.src = dataURL;
       gallery.appendChild(img);
 
-      // guardar en localStorage
       savedImages.push(dataURL);
       localStorage.setItem("galleryImages", JSON.stringify(savedImages));
     });
+
+     canvas.addEventListener('dblclick', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+    
   </script>
 </body>
 </html>
