@@ -30,7 +30,8 @@ img.himages {
 
 .imagesection {
   width: 100%;
-  max-width: 100%px;
+  max-width: 1200px;
+  margin: 0 0 2px 0;
 }
 
 .konami-wrapper {
@@ -208,9 +209,6 @@ body.bg-active {
   padding: 0;
 }
 
-#star {
-    position: absolute;
-}
 
 #tabloid {
     position: absolute;
