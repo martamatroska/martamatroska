@@ -75,7 +75,7 @@
                 , a production company based in 
                 <a href="https://maps.app.goo.gl/8Jax9VNqDX4G4gpo7" target="_blank">Barcelona</a>; 
                 <br>
-                 𓇢𓇢 𓇢𓇢 𓇢𓇢𓇢𓇢
+                 𓇢𓇢 𓇢𓇢 𓇢𓇢𓇢𓇢 𓇢
                 
                 <br>
                 <br>
@@ -155,13 +155,13 @@ const textos = [
     "Born: Granada",
     "Born: Granada\nRaised: Valencia",
     "Born: Granada\nRaised: Valencia\nBased: Barcelona",
-    "Born: Granada\nRaised: Valencia\nBased: Barcelona\nI enjoy geeky stuff, quiet environments, people (in small doses), animals (in all doses),\nbooks, <2h movies, >2h playlists,\nnature, and watching the world like it’s a documentary.\nI studied oceanography, now I bend pixels as a VFX artist.\nGemini (if that matters).\nEternally learning."
+    "Born: Granada\nRaised: Valencia\nBased: Barcelona\n\nI enjoy geeky stuff, quiet environments, people (in small doses), animals (in all doses),\nbooks, <2h movies, >2h playlists,\nnature, and watching the world like it’s a documentary.\nI studied oceanography, now I bend pixels as a VFX artist.\nGemini (if that matters).\nEternally learning."
 ];
 
 // description text
 let textoDiv = document.createElement('div');
 textoDiv.style.position = 'fixed';
-textoDiv.style.top = '70%';
+textoDiv.style.top = '80%';
 textoDiv.style.left = '50%';
 textoDiv.style.transform = 'translate(-50%, -50%)'; 
 textoDiv.style.color = 'black';
@@ -169,7 +169,7 @@ textoDiv.style.fontSize = '11pt';
 textoDiv.style.maxWidth = '80%';  // adjustable
 textoDiv.style.wordWrap = 'break-word';
 textoDiv.style.textAlign = 'left';
-textoDiv.style.whiteSpace = 'pre-line';
+textoDiv.style.whiteSpace = 'pre-line'; // for detect \n
 document.body.appendChild(textoDiv);
 
 showBg.addEventListener('click', function(e) {
