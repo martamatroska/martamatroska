@@ -214,3 +214,15 @@ body.bg-active {
     bottom: 40%;
     right: 60%;
 }
+
+   #info {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: pre-wrap;
+      padding: 1em;
+      max-width: 400px;
+      text-align: left;
+}
