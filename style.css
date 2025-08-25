@@ -18,7 +18,7 @@
 .img-container > img:hover {
   -webkit-transform: scale(2);
   transform: scale(2);
-  display: unset;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   transform-origin: bottom left;
@@ -209,7 +209,7 @@ body.bg-active {
   padding: 0;
 }
 
-.tabloid {
+#tabloid {
     position: absolute;
     bottom: 40%;
     right: 60%;
