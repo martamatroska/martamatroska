@@ -160,39 +160,39 @@ const textos = [
 
 // Crear el div para el texto
 let textoDiv = document.createElement('div');
-textoDiv.style.position = 'absolute';
+textoDiv.style.position = 'fixed'; // fijo en la ventana
+textoDiv.style.top = '50%';
+textoDiv.style.left = '50%';
+textoDiv.style.transform = 'translate(-50%, -50%)'; // centra exactamente
 textoDiv.style.color = 'black';
-textoDiv.style.fontSize = '20px';
-textoDiv.style.textShadow = '2px 2px 4px black';
-textoDiv.style.maxWidth = '300px';  
-textoDiv.style.wordWrap = 'break-word'; 
-textoDiv.style.textAlign = 'center';
+textoDiv.style.fontSize = '11pt';
+textoDiv.style.maxWidth = '80%';  // ajustable
+textoDiv.style.wordWrap = 'break-word';
+textoDiv.style.textAlign = 'right';
 document.body.appendChild(textoDiv);
 
 showBg.addEventListener('click', function(e) {
     e.preventDefault();
 
-    // Cambia la foto de fondo
+    // Change bg
     document.body.style.backgroundImage = `url('${fotos[frogClickCount]}')`;
     document.body.style.backgroundSize = 'cover';
     document.body.style.backgroundPosition = 'center';
 
-    // Posición aleatoria del botón
+    // random position frog
     const randomBottom = Math.floor(Math.random() * (window.innerHeight - showBg.offsetHeight));
     const randomLeft = Math.floor(Math.random() * (window.innerWidth - showBg.offsetWidth));
     showBg.style.position = "absolute";
     showBg.style.bottom = `${randomBottom}px`;
     showBg.style.left = `${randomLeft}px`;
 
-    // Mostrar texto centrado sobre la foto
     textoDiv.textContent = textos[frogClickCount];
-    textoDiv.style.left = `${Math.min(randomLeft + showBg.offsetWidth / 2 - textoDiv.offsetWidth / 2, window.innerWidth - textoDiv.offsetWidth - 10)}px`;
-    textoDiv.style.bottom = `${Math.min(randomBottom + showBg.offsetHeight / 2 - textoDiv.offsetHeight / 2, window.innerHeight - textoDiv.offsetHeight - 10)}px`;
 
-    // Siguiente índice
+
     frogClickCount = (frogClickCount + 1) % fotos.length;
 });
 </script>
+
 
             </div>
 
