@@ -56,6 +56,13 @@ img.himages {
   left: 10px;
 }
 
+#star {
+  position: fixed;
+  bottom: 10px; 
+  left: 50%;     
+
+}
+
 #Video {
   position: fixed;
   right: 0;
