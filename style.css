@@ -56,10 +56,11 @@ img.himages {
   left: 10px;
 }
 
-#star {
+#star-wrapper {
   position: fixed;
   bottom: 10px; 
   left: 50%;     
+  text-align: top;
 
 }
 
