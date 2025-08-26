@@ -96,7 +96,7 @@ video::-webkit-media-controls-panel {
 body { background-color: #fcfcfc; }
 
 a, a:visited, .styleone:link, .styleone:visited { color: black; text-decoration: underline; }
-a:hover, .styleone:hover { color: white; }
+a:hover, .styleone:hover { color: white; text-decoration: underline; }
 
 .styletwo:link, .styletwo:visited, .stylethree:link, .stylethree:visited { color: white; }
 .styletwo:hover, .stylethree:hover { color: black; }
