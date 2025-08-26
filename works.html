@@ -30,21 +30,6 @@
 	</script>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<div class="mode">
-
-			<span class="change">✺</span>
-	</div>
-<script>
-        $( ".change" ).on("click", function() {
-            if( $( "body" ).hasClass( "dark" )) {
-                $( "body" ).removeClass( "dark" );
-                $( ".change" ).text( "✺" );
-            } else {
-                $( "body" ).addClass( "dark" );
-                $( ".change" ).text( "❋" );
-            }
-        });
-    </script>
 		<style>
 			.change {
 					cursor: pointer;
@@ -52,7 +37,7 @@
 			}
 			.dark{
 					background-color: black;
-					color: ##00e31a;}
+					color: #e6e6e6;}
 					.dark.change{
 						color: white}
 				.dark a {
@@ -214,6 +199,9 @@
      style="display:none; position:fixed; top:10px; right:10px; width:100px; z-index:9999;">
 
 <script>
+ 
+  document.body.classList.add("dark");
+	
   document.getElementById('lavalamp').addEventListener('click', function(e) {
     e.preventDefault();
     let lava = document.getElementById('lava');
@@ -519,7 +507,6 @@
 </div>
 <div id="clock"></div>
 </div>
-
 
 		</body>
 
