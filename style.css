@@ -211,9 +211,9 @@ body.bg-active {
 
 
 #tabloid {
-    position: absolute;
-    bottom: 40%;
-    right: 60%;
+    position: fixed;
+    top: 10px;
+    right: 10px;
 }
 
    #info {
