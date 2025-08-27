@@ -15,23 +15,19 @@
   padding: 2px;
 }
 
-.img-container > img:hover {
-  -webkit-transform: scale(2);
-  transform: scale(2);
+.img-container {
+  overflow: hidden;    
+}
+
+.img-container img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  transform-origin: bottom left;
+  margin: 0 auto;         
+  transition: transform 0.3s ease; 
+  transform-origin: bottom left;   
 }
 
-img.himages {
-  vertical-align: top;
-}
-
-.imagesection {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 0 2px 0;
+.img-container img:hover {
+  transform: scale(2);      
 }
 
 .konami-wrapper {
@@ -62,7 +58,6 @@ img.himages {
   bottom: 10px; 
   left: 50%;     
   text-align: left;
-
 }
 
 #Video {
@@ -196,11 +191,11 @@ body.bg-active {
     max-width: 95%;
   }
 
-  #ryatvideo, #fwvideo {
+#ryatvideo, #fwvideo {
     width: 100%;
   }
 
-  #clock, .mode {
+#clock, .mode {
     font-size: 10pt;
     bottom: 5px;
     right: 10px;
@@ -219,14 +214,13 @@ body.bg-active {
   padding: 0;
 }
 
-
 #tabloid {
     position: fixed;
     top: 10px;
     right: 10px;
 }
 
-   #info {
+#info {
       display: none;
       position: fixed;
       top: 50%;
