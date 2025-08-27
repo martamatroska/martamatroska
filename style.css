@@ -16,18 +16,22 @@
 }
 
 .img-container {
-  overflow: hidden;    
+  overflow: hidden;      /* el zoom no se sale del marco */
+  width: 720px;          /* ancho fijo o el que quieras */
+  height: 400px;         /* alto fijo o el que quieras */
+  position: relative;
 }
 
 .img-container img {
   display: block;
-  margin: 0 auto;         
-  transition: transform 0.3s ease; 
-  transform-origin: bottom left;   
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  transform-origin: center center; /* punto inicial */
 }
 
-.img-container img:hover {
-  transform: scale(2);      
+.img-container:hover img {
+  transform: scale(2);   /* zoom al pasar el ratón */
 }
 
 .konami-wrapper {
