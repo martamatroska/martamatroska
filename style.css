@@ -15,23 +15,23 @@
   padding: 2px;
 }
 
-.img-container {
-  overflow: hidden;      /* el zoom no se sale del marco */
-  width: 720px;          /* ancho fijo o el que quieras */
-  height: 400px;         /* alto fijo o el que quieras */
-  position: relative;
-}
-
-.img-container img {
+.img-container > img:hover {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);          /* enlarges the image to double size on hover */
   display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-  transform-origin: center center; /* punto inicial */
+  margin-left: auto;
+  margin-right: auto;           /* centers the image inside the container */
+  transform-origin: bottom left;/* the zoom pivot is at the bottom-left corner */
 }
 
-.img-container:hover img {
-  transform: scale(2);   /* zoom al pasar el ratón */
+img.himages {
+  vertical-align: top;          /* aligns the image to the top of adjacent text */
+}
+
+.imagesection {
+  width: 100%;                  /* takes the full available width */
+  max-width: 1200px;            /* does not exceed 1200px */
+  margin: 0 0 2px 0;            /* small bottom spacing */
 }
 
 .konami-wrapper {
