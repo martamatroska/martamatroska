@@ -132,6 +132,12 @@ a:hover {
   letter-spacing: -0.3px;
 }
 
+.styleone {
+  font-size: 11pt;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
 .styleone:link,
 .styleone:visited {
   color: black;
