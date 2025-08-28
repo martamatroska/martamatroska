@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doodles</title>
+</head>
+<body> 
+  <div class="doodlewindow" id="paper">
+    <div class="paintheader">
+      <div class="red">◉</div>
+      &emsp;&emsp;&emsp;&emsp;doodles.recent
+    </div>
+
+    <div class="scrollbox">
+      <!-- <div class="doodle">
+        <img src="./doodles/7.8.25_doodle.png" width="325" height="239">
+      </div> -->
+      <div class="doodle">
+        <img src="./doodles/31.7.25_doodle.png" width="325" height="239">
+      </div>
+      <div class="doodle">
+        <img src="./doodles/28.6.25_doodle.png" width="325" height="239">
+      </div>
+      <div class="doodle">
+        <img src="./doodles/16.6.25_doodle.png" width="325" height="239">
+      </div>
+      <div class="doodle">
+        <img src="./doodles/16.6.25_cyan_doodle.png" width="325" height="239">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
